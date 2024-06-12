@@ -9,15 +9,23 @@ function FormBox(props) {
     }, 100);
     setWord("No Words");
     setLetter("No Letter");
-
-  };
-  var upperCaseHandler = () => {
-    var CValue = textValue.toUpperCase();
-    setText(CValue);
-  };
-  var lowerCaseHandler = () => {
-    var CValue = textValue.toLowerCase();
-    setText(CValue);
+    setMessage("Text reset properly")
+    setType("warning")
+    setTimeout(() => {
+      
+    }, 2000);
+    };
+    var upperCaseHandler = () => {
+      var CValue = textValue.toUpperCase();
+      setText(CValue);
+      setMessage("Text Converd into Upper case")
+      setType("info")
+      };
+      var lowerCaseHandler = () => {
+        var CValue = textValue.toLowerCase();
+        setText(CValue);
+        setMessage("Text Converd into Lower case")
+        setType("primary")
   };
   var TaValue = (e) => {
     setText(e.target.value);
@@ -28,9 +36,16 @@ function FormBox(props) {
   const [placeValue, setPlace] = useState();
   const [word,setWord] = useState();
   const [letter,setLetter] = useState();
+  const [message, setMessage] = useState("Welcome");
+  const [ typeOfMsg,setType] = useState("success");
+
   return (
     <>
       <div className="container">
+      <div class={`alert alert-${typeOfMsg} alert-dismissible fade show`} role="alert">
+        <strong>Success</strong> {message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
         <div className="mb-3">
           <label htmlFor="FormControlId" className="form-label"> {props.Names} </label>
           <textarea className="form-control" id="FormControlId" rows="3" value={textValue} placeholder={placeValue} onChange={TaValue} ></textarea>

@@ -5,7 +5,7 @@ export {NavBar};
 function NavBar (params) {
   const [style, setStyle] = useState("light");
   const [textColour, setTextColour] = useState("Dark");
-  const ChangeState = ()=>{
+  var ChangeState = ()=>{
     style == "light" ? setStyle("dark") : setStyle("light")
     style == "light" ? setTextColour("light") : setTextColour("dark")
   }
@@ -38,7 +38,9 @@ function NavBar (params) {
             </ul>
             <div className="form-check form-switch">
             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={ChangeState}/>
-            <label className={`form-check-label text-${textColour}`} htmlFor="flexSwitchCheckDefault">{style}</label>
+            <label className={`form-check-label text-${textColour}`} htmlFor="flexSwitchCheckDefault">
+              {style =="light" ? "Light" :"Dark" }
+              </label>
               </div> 
           </div>
         </div>
