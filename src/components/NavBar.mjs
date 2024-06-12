@@ -2,9 +2,9 @@ import { useState } from "react";
 
 export {NavBar};
 
-function NavBar (props) {
+function NavBar (params) {
   const [style, setStyle] = useState("light");
-  const [textColour, setTextColour] = useState("dark");
+  const [textColour, setTextColour] = useState("Dark");
   const ChangeState = ()=>{
     style == "light" ? setStyle("dark") : setStyle("light")
     style == "light" ? setTextColour("light") : setTextColour("dark")
@@ -14,13 +14,13 @@ function NavBar (props) {
           <nav className={`navbar navbar-expand-lg bg-${style}`}>
         <div className="container-fluid">
           <a className={`navbar-brand text-${textColour}`} href="#">
-            {props.TitleName}
+            {params.TitleName}
           </a>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className={`nav-link active text-${textColour}`} aria-current="page" href="#">
-                  {props.HomeAtt}
+                  {params.HomeAtt}
                 </a>
               </li>
               <li className="nav-item">
