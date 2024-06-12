@@ -7,6 +7,9 @@ function FormBox(props) {
     setTimeout(() => {
       setPlace("please enter your detail here");
     }, 100);
+    setWord("No Words");
+    setLetter("No Letter");
+
   };
   var upperCaseHandler = () => {
     var CValue = textValue.toUpperCase();
@@ -18,13 +21,13 @@ function FormBox(props) {
   };
   var TaValue = (e) => {
     setText(e.target.value);
-    // var selection = Window.getSelection("e.target.value");
-    // selection ?  setText(selection.toString()) : "";
-    // console.log(selection)
+    setWord(textValue.split(" ").length >= 1 ? textValue.split(" ").length + " Words " : "no Words")
+    setLetter(textValue.length <= 0 ? "No Letter" : textValue.length + " Letters")
   };
   const [textValue, setText] = useState();
   const [placeValue, setPlace] = useState();
-
+  const [word,setWord] = useState();
+  const [letter,setLetter] = useState();
   return (
     <>
       <div className="container">
@@ -37,8 +40,7 @@ function FormBox(props) {
         </div>
       </div>
       <div className="container">
-         <h3> { textValue.length <= 0 ? "No letter" : textValue.length + " Letters"} </h3> 
-        <h3> { textValue.split(" ").length >= 1 ? textValue.split(" ").length-1 + " Words " : "no Words" } </h3>
+         <h3> { letter}, { word } </h3>
       </div>
     </>
   );
